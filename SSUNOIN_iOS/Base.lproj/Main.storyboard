@@ -35,8 +35,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="국어국문학과" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4h-km-DBf">
-                                                    <rect key="frame" x="19" y="14" width="264" height="55"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                    <rect key="frame" x="24" y="12" width="264" height="55"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                                     <color key="textColor" red="0.72549019609999998" green="0.19215686269999999" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -47,24 +47,24 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Korean Language &amp; Literature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Muy-G2-dDZ">
-                                                    <rect key="frame" x="19" y="50" width="264" height="20"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                                    <rect key="frame" x="24" y="52" width="264" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                     <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstItem="Muy-G2-dDZ" firstAttribute="top" secondItem="gRS-9a-aKR" secondAttribute="topMargin" constant="42" id="1Ho-pp-2Ik"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Muy-G2-dDZ" secondAttribute="bottom" constant="21.5" id="924-WX-SWp"/>
-                                                <constraint firstItem="Wof-kl-aoa" firstAttribute="leading" secondItem="b4h-km-DBf" secondAttribute="trailing" constant="8" symbolic="YES" id="GIH-Xf-wKa"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="b4h-km-DBf" secondAttribute="bottom" constant="22.5" id="LYN-OK-Y9C"/>
-                                                <constraint firstItem="b4h-km-DBf" firstAttribute="leading" secondItem="gRS-9a-aKR" secondAttribute="leadingMargin" constant="11" id="NYt-RH-BTH"/>
-                                                <constraint firstItem="b4h-km-DBf" firstAttribute="top" secondItem="gRS-9a-aKR" secondAttribute="topMargin" constant="6" id="T1O-bG-KeP"/>
+                                                <constraint firstItem="Muy-G2-dDZ" firstAttribute="top" secondItem="gRS-9a-aKR" secondAttribute="topMargin" constant="44" id="1Ho-pp-2Ik"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Muy-G2-dDZ" secondAttribute="bottom" constant="19.5" id="924-WX-SWp"/>
+                                                <constraint firstItem="Wof-kl-aoa" firstAttribute="leading" secondItem="b4h-km-DBf" secondAttribute="trailing" constant="3" id="GIH-Xf-wKa"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="b4h-km-DBf" secondAttribute="bottom" constant="24.5" id="LYN-OK-Y9C"/>
+                                                <constraint firstItem="b4h-km-DBf" firstAttribute="leading" secondItem="gRS-9a-aKR" secondAttribute="leadingMargin" constant="16" id="NYt-RH-BTH"/>
+                                                <constraint firstItem="b4h-km-DBf" firstAttribute="top" secondItem="gRS-9a-aKR" secondAttribute="topMargin" constant="4" id="T1O-bG-KeP"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Wof-kl-aoa" secondAttribute="trailing" constant="10" id="aRh-HI-d7e"/>
                                                 <constraint firstItem="b4h-km-DBf" firstAttribute="leading" secondItem="Muy-G2-dDZ" secondAttribute="leading" id="gz2-u0-VG4"/>
                                                 <constraint firstItem="Wof-kl-aoa" firstAttribute="centerY" secondItem="gRS-9a-aKR" secondAttribute="centerY" id="ynr-NW-2dI"/>
-                                                <constraint firstItem="Wof-kl-aoa" firstAttribute="leading" secondItem="Muy-G2-dDZ" secondAttribute="trailing" constant="8" symbolic="YES" id="zNi-K8-qkS"/>
+                                                <constraint firstItem="Wof-kl-aoa" firstAttribute="leading" secondItem="Muy-G2-dDZ" secondAttribute="trailing" constant="3" id="zNi-K8-qkS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -114,10 +114,10 @@
             </objects>
             <point key="canvasLocation" x="-315" y="-217.6056338028169"/>
         </scene>
-        <!--View Controller-->
+        <!--NoticeVC-->
         <scene sceneID="lHT-af-Wht">
             <objects>
-                <viewController id="cYY-d7-vWX" sceneMemberID="viewController">
+                <viewController restorationIdentifier="NoticeVC" storyboardIdentifier="NoticeVC" title="NoticeVC" id="cYY-d7-vWX" customClass="NoticeViewController" customModule="SSUNOIN_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gmT-p4-I9n"/>
                         <viewControllerLayoutGuide type="bottom" id="Sm6-2o-kVB"/>
@@ -136,6 +136,9 @@
                                     <navigationItem title="공지사항" id="LWq-Hw-avg">
                                         <barButtonItem key="leftBarButtonItem" image="nav_back_buton" id="BlV-VA-NBJ">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="backButton:" destination="cYY-d7-vWX" id="Hpa-58-eJw"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -364,7 +367,7 @@
     <resources>
         <image name="main_ios_arrow" width="32" height="52"/>
         <image name="more_tab" width="17" height="5"/>
-        <image name="nav_back_buton" width="16" height="26"/>
+        <image name="nav_back_buton" width="8" height="13"/>
         <image name="notice_tab" width="21" height="19"/>
         <image name="scholarship_tab" width="27" height="19"/>
     </resources>

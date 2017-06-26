@@ -11,6 +11,7 @@
 		DE87017B1F013280002CD44A /* NoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE87017A1F013280002CD44A /* NoticeCell.swift */; };
 		DE87017D1F0132C8002CD44A /* UnionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE87017C1F0132C8002CD44A /* UnionCell.swift */; };
 		DE87017F1F0133D2002CD44A /* Major.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE87017E1F0133D2002CD44A /* Major.swift */; };
+		DE8701811F014064002CD44A /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8701801F014064002CD44A /* NoticeViewController.swift */; };
 		DEA3FFC61F00B0EA00AB045D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3FFC51F00B0EA00AB045D /* AppDelegate.swift */; };
 		DEA3FFC81F00B0EA00AB045D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3FFC71F00B0EA00AB045D /* ViewController.swift */; };
 		DEA3FFCB1F00B0EA00AB045D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA3FFC91F00B0EA00AB045D /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		DE87017A1F013280002CD44A /* NoticeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeCell.swift; sourceTree = "<group>"; };
 		DE87017C1F0132C8002CD44A /* UnionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionCell.swift; sourceTree = "<group>"; };
 		DE87017E1F0133D2002CD44A /* Major.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Major.swift; sourceTree = "<group>"; };
+		DE8701801F014064002CD44A /* NoticeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		DEA3FFC21F00B0EA00AB045D /* SSUNOIN_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSUNOIN_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA3FFC51F00B0EA00AB045D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEA3FFC71F00B0EA00AB045D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				DE87017A1F013280002CD44A /* NoticeCell.swift */,
 				DE87017C1F0132C8002CD44A /* UnionCell.swift */,
 				DE87017E1F0133D2002CD44A /* Major.swift */,
+				DE8701801F014064002CD44A /* NoticeViewController.swift */,
 			);
 			path = SSUNOIN_iOS;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				DEA3FFC81F00B0EA00AB045D /* ViewController.swift in Sources */,
 				DE87017F1F0133D2002CD44A /* Major.swift in Sources */,
 				DE87017D1F0132C8002CD44A /* UnionCell.swift in Sources */,
+				DE8701811F014064002CD44A /* NoticeViewController.swift in Sources */,
 				DE87017B1F013280002CD44A /* NoticeCell.swift in Sources */,
 				DE8701771F012D70002CD44A /* MajorCell.swift in Sources */,
 				DEA3FFC61F00B0EA00AB045D /* AppDelegate.swift in Sources */,

@@ -41,6 +41,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard: UIStoryboard = self.storyboard!
+        let nextView = storyboard.instantiateViewController(withIdentifier: "NoticeVC") as! NoticeViewController
+        self.present(nextView, animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return majorList.count
     }
@@ -51,11 +57,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.MajorName.text = majorList[indexPath.row].getName()
         cell.MajorEngName.text = majorList[indexPath.row].getEnglishName()
         
+        cell.selectionStyle = .none
+        
         let whiteRoundedView : UIView = UIView(frame: CGRect(x: 10, y: 8, width: self.view.frame.size.width - 20, height: 80))
         whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
         whiteRoundedView.layer.masksToBounds = false
         whiteRoundedView.layer.cornerRadius = 3.0
-        whiteRoundedView.layer.shadowOffset = CGSize(width: -0.3, height: 0.3)
+        whiteRoundedView.layer.shadowOffset = CGSize(width: -0.1, height: 0.1)
         whiteRoundedView.layer.shadowOpacity = 0.08
         
         cell.contentView.addSubview(whiteRoundedView)
