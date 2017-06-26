@@ -14,6 +14,10 @@
 		DEA3FFD01F00B0EA00AB045D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA3FFCE1F00B0EA00AB045D /* LaunchScreen.storyboard */; };
 		DEA3FFDB1F00B0EB00AB045D /* SSUNOIN_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3FFDA1F00B0EB00AB045D /* SSUNOIN_iOSTests.swift */; };
 		DEA3FFE61F00B0EB00AB045D /* SSUNOIN_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA3FFE51F00B0EB00AB045D /* SSUNOIN_iOSUITests.swift */; };
+		DEA3FFF71F00B61300AB045D /* NanumBarunGothic.otf in Resources */ = {isa = PBXBuildFile; fileRef = DEA3FFF31F00B61300AB045D /* NanumBarunGothic.otf */; };
+		DEA3FFF81F00B61300AB045D /* NanumBarunGothicBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DEA3FFF41F00B61300AB045D /* NanumBarunGothicBold.otf */; };
+		DEA3FFF91F00B61300AB045D /* NanumBarunGothicLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = DEA3FFF51F00B61300AB045D /* NanumBarunGothicLight.otf */; };
+		DEA3FFFA1F00B61300AB045D /* NanumBarunGothicUltraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = DEA3FFF61F00B61300AB045D /* NanumBarunGothicUltraLight.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		DEA3FFE11F00B0EB00AB045D /* SSUNOIN_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSUNOIN_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA3FFE51F00B0EB00AB045D /* SSUNOIN_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUNOIN_iOSUITests.swift; sourceTree = "<group>"; };
 		DEA3FFE71F00B0EB00AB045D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEA3FFF31F00B61300AB045D /* NanumBarunGothic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothic.otf; sourceTree = "<group>"; };
+		DEA3FFF41F00B61300AB045D /* NanumBarunGothicBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicBold.otf; sourceTree = "<group>"; };
+		DEA3FFF51F00B61300AB045D /* NanumBarunGothicLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicLight.otf; sourceTree = "<group>"; };
+		DEA3FFF61F00B61300AB045D /* NanumBarunGothicUltraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumBarunGothicUltraLight.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,10 @@
 				DEA3FFC91F00B0EA00AB045D /* Main.storyboard */,
 				DEA3FFCC1F00B0EA00AB045D /* Assets.xcassets */,
 				DEA3FFCE1F00B0EA00AB045D /* LaunchScreen.storyboard */,
+				DEA3FFF31F00B61300AB045D /* NanumBarunGothic.otf */,
+				DEA3FFF41F00B61300AB045D /* NanumBarunGothicBold.otf */,
+				DEA3FFF51F00B61300AB045D /* NanumBarunGothicLight.otf */,
+				DEA3FFF61F00B61300AB045D /* NanumBarunGothicUltraLight.otf */,
 				DEA3FFD11F00B0EA00AB045D /* Info.plist */,
 			);
 			path = SSUNOIN_iOS;
@@ -235,6 +247,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEA3FFF81F00B61300AB045D /* NanumBarunGothicBold.otf in Resources */,
+				DEA3FFF91F00B61300AB045D /* NanumBarunGothicLight.otf in Resources */,
+				DEA3FFFA1F00B61300AB045D /* NanumBarunGothicUltraLight.otf in Resources */,
+				DEA3FFF71F00B61300AB045D /* NanumBarunGothic.otf in Resources */,
 				DEA3FFD01F00B0EA00AB045D /* LaunchScreen.storyboard in Resources */,
 				DEA3FFCD1F00B0EA00AB045D /* Assets.xcassets in Resources */,
 				DEA3FFCB1F00B0EA00AB045D /* Main.storyboard in Resources */,
@@ -516,6 +532,7 @@
 				DEA3FFEC1F00B0EB00AB045D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DEA3FFED1F00B0EB00AB045D /* Build configuration list for PBXNativeTarget "SSUNOIN_iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +541,7 @@
 				DEA3FFEF1F00B0EB00AB045D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DEA3FFF01F00B0EB00AB045D /* Build configuration list for PBXNativeTarget "SSUNOIN_iOSUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +550,7 @@
 				DEA3FFF21F00B0EB00AB045D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
