@@ -31,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ozw-RC-XCk">
-                                <rect key="frame" x="26" y="238" width="323" height="191.5"/>
+                                <rect key="frame" x="26" y="238.5" width="323" height="191.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo" translatesAutoresizingMaskIntoConstraints="NO" id="mGh-hv-Aea">
                                         <rect key="frame" x="0.0" y="0.0" width="323" height="120"/>

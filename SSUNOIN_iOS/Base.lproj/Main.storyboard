@@ -367,7 +367,7 @@
     <resources>
         <image name="main_ios_arrow" width="32" height="52"/>
         <image name="more_tab" width="17" height="5"/>
-        <image name="nav_back_buton" width="8" height="13"/>
+        <image name="nav_back_buton" width="12" height="19"/>
         <image name="notice_tab" width="21" height="19"/>
         <image name="scholarship_tab" width="27" height="19"/>
     </resources>
