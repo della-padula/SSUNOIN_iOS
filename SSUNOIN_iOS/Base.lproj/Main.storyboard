@@ -119,27 +119,42 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="국가기술자격증" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ef1-12-feW">
-                                                    <rect key="frame" x="8" y="8" width="267" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="8" y="8" width="267" height="20"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                    <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-06-27" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEJ-Tx-OVu">
-                                                    <rect key="frame" x="8" y="27.5" width="267" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                                    <rect key="frame" x="8" y="30" width="267" height="18"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="15"/>
                                                     <color key="textColor" red="0.72549019609999998" green="0.19215686269999999" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="attachmennt" translatesAutoresizingMaskIntoConstraints="NO" id="6xM-wS-ZjQ">
+                                                    <rect key="frame" x="290" y="8" width="22" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="22" id="dNh-fX-fT7"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="nEJ-Tx-OVu" firstAttribute="top" secondItem="Ef1-12-feW" secondAttribute="bottom" constant="-1" id="3MI-gv-EFd"/>
+                                                <constraint firstItem="nEJ-Tx-OVu" firstAttribute="top" secondItem="Ef1-12-feW" secondAttribute="bottom" constant="2" id="3MI-gv-EFd"/>
+                                                <constraint firstItem="6xM-wS-ZjQ" firstAttribute="bottom" secondItem="nEJ-Tx-OVu" secondAttribute="bottom" id="3hR-NP-jRF"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="Ef1-12-feW" secondAttribute="leading" id="B1s-R1-UQx"/>
                                                 <constraint firstAttribute="topMargin" secondItem="Ef1-12-feW" secondAttribute="top" id="N3T-hW-Z5L"/>
                                                 <constraint firstItem="nEJ-Tx-OVu" firstAttribute="leading" secondItem="Ef1-12-feW" secondAttribute="leading" id="PjT-fa-PcK"/>
+                                                <constraint firstItem="6xM-wS-ZjQ" firstAttribute="centerY" secondItem="fSU-O8-Rdp" secondAttribute="centerY" id="eMa-eX-qCO"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Ef1-12-feW" secondAttribute="trailing" constant="37" id="fCf-iC-NcJ"/>
+                                                <constraint firstItem="6xM-wS-ZjQ" firstAttribute="top" secondItem="Ef1-12-feW" secondAttribute="top" id="gzl-Ms-8of"/>
+                                                <constraint firstItem="6xM-wS-ZjQ" firstAttribute="trailing" secondItem="fSU-O8-Rdp" secondAttribute="trailingMargin" id="vdT-TW-dIz"/>
                                                 <constraint firstItem="nEJ-Tx-OVu" firstAttribute="trailing" secondItem="Ef1-12-feW" secondAttribute="trailing" id="wwR-oM-gN0"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="attachmentIcon" destination="6xM-wS-ZjQ" id="Rp8-Ns-Tfo"/>
+                                            <outlet property="dateText" destination="nEJ-Tx-OVu" id="TIp-a3-AfD"/>
+                                            <outlet property="titleText" destination="Ef1-12-feW" id="wGQ-dH-Gk1"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -157,6 +172,9 @@
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="tableView" destination="uUB-Ti-Gsb" id="DM4-G9-JtZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9fb-FU-Djq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -370,6 +388,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="attachmennt" width="32" height="18"/>
         <image name="main_ios_arrow" width="32" height="52"/>
         <image name="more_tab" width="17" height="5"/>
         <image name="nav_back_buton" width="12" height="19"/>

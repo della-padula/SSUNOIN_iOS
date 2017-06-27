@@ -9,5 +9,7 @@
 import UIKit
 
 class NoticeCell : UITableViewCell {
-    
+    @IBOutlet weak var titleText: UILabel!
+    @IBOutlet weak var dateText: UILabel!
+    @IBOutlet weak var attachmentIcon: UIImageView!
 }

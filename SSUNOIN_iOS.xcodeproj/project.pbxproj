@@ -29,6 +29,8 @@
 		DEB999431F023200006C1B99 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB999421F023200006C1B99 /* HomeNavigationController.swift */; };
 		DEB999451F0232AE006C1B99 /* StudentUnionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB999441F0232AE006C1B99 /* StudentUnionViewController.swift */; };
 		DEB999471F02333F006C1B99 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB999461F02333F006C1B99 /* MoreViewController.swift */; };
+		DEB999491F0234A1006C1B99 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB999481F0234A1006C1B99 /* Notice.swift */; };
+		DEB9994B1F023512006C1B99 /* AppDataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB9994A1F023512006C1B99 /* AppDataCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		DEB999421F023200006C1B99 /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeNavigationController.swift; path = ../HomeNavigationController.swift; sourceTree = "<group>"; };
 		DEB999441F0232AE006C1B99 /* StudentUnionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentUnionViewController.swift; sourceTree = "<group>"; };
 		DEB999461F02333F006C1B99 /* MoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		DEB999481F0234A1006C1B99 /* Notice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
+		DEB9994A1F023512006C1B99 /* AppDataCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDataCache.swift; sourceTree = "<group>"; };
 		FCFB4E8964237B6281EF1BDA /* Pods_SSUNOIN_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SSUNOIN_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -153,6 +157,8 @@
 				DE8701801F014064002CD44A /* NoticeViewController.swift */,
 				DEB999441F0232AE006C1B99 /* StudentUnionViewController.swift */,
 				DEB999461F02333F006C1B99 /* MoreViewController.swift */,
+				DEB999481F0234A1006C1B99 /* Notice.swift */,
+				DEB9994A1F023512006C1B99 /* AppDataCache.swift */,
 			);
 			path = SSUNOIN_iOS;
 			sourceTree = "<group>";
@@ -497,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEB9994B1F023512006C1B99 /* AppDataCache.swift in Sources */,
 				DEA3FFC81F00B0EA00AB045D /* ViewController.swift in Sources */,
 				DE87017F1F0133D2002CD44A /* Major.swift in Sources */,
 				DEB999451F0232AE006C1B99 /* StudentUnionViewController.swift in Sources */,
@@ -507,6 +514,7 @@
 				DE8701771F012D70002CD44A /* MajorCell.swift in Sources */,
 				DEB999431F023200006C1B99 /* HomeNavigationController.swift in Sources */,
 				DEA3FFC61F00B0EA00AB045D /* AppDelegate.swift in Sources */,
+				DEB999491F0234A1006C1B99 /* Notice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

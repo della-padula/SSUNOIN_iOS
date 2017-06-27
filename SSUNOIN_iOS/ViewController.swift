@@ -1,5 +1,19 @@
 import UIKit
 
+extension String {
+    func encodeUrl() -> String {
+        return self.addingPercentEncoding( withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+    }
+    
+    func decodeUrl() -> String {
+        return self.removingPercentEncoding!
+    }
+    
+    func replace(target: String, withString: String) -> String {
+        return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
+    }
+}
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var MajorTableView: UITableView!
     
@@ -41,7 +55,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         guard let nextView = self.storyboard?.instantiateViewController(withIdentifier: "NoticeVC") as? NoticeViewController else {
             return
         }
-        
+        nextView.majorIndex = indexPath.row
         nextView.majorName = self.majorList[indexPath.row].getName()
         self.navigationController?.pushViewController(nextView, animated: true)
     }
