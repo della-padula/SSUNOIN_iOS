@@ -9,6 +9,9 @@
 import UIKit
 
 class NoticeViewController : UIViewController {
+    
+    var majorName : String?
+    
     @IBAction func backButton(_ sender: Any) {
         let transition = CATransition()
         transition.duration = 0.3
@@ -24,7 +27,7 @@ class NoticeViewController : UIViewController {
     }
     
     override func viewDidLoad() {
-        
+        self.title = self.majorName
     }
     
     override func didReceiveMemoryWarning() {

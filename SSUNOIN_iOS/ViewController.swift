@@ -46,15 +46,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let transition = CATransition()
-        transition.duration = 0.3
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromRight
-        view.window!.layer.add(transition, forKey: kCATransition)
         
-        let storyboard: UIStoryboard = self.storyboard!
-        let nextView = storyboard.instantiateViewController(withIdentifier: "NoticeVC") as! NoticeViewController
-        self.present(nextView, animated: false, completion: nil)
+        guard let nextView = self.storyboard?.instantiateViewController(withIdentifier: "NoticeVC") as? NoticeViewController else {
+            return
+        }
+        
+        nextView.majorName = self.majorList[indexPath.row].getName()
+        self.navigationController?.pushViewController(nextView, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
