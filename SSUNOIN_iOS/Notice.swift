@@ -14,19 +14,12 @@ class Notice {
     var date : String?
     var isAttachment : Bool
     var viewCount : Int
+    var linkURL : String?
     
-    
-    init(itemNo : Int, title: String, date: String, viewCount : Int) {
+    init(itemNo : Int, title: String, linkURL: String, date: String, isAttachment: Bool, viewCount : Int) {
         self.itemNo = itemNo
         self.title = title
-        self.date = date
-        self.isAttachment = false
-        self.viewCount = viewCount
-    }
-    
-    init(itemNo : Int, title: String, date: String, isAttachment: Bool, viewCount : Int) {
-        self.itemNo = itemNo
-        self.title = title
+        self.linkURL = linkURL
         self.date = date
         self.isAttachment = isAttachment
         self.viewCount = viewCount
@@ -34,6 +27,10 @@ class Notice {
     
     func getTitle() -> String {
         return self.title!
+    }
+    
+    func getLinkURL() -> String {
+        return self.linkURL!
     }
     
     func getDate() -> String {
