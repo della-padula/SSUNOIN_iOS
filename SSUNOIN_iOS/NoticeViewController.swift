@@ -7,20 +7,12 @@
 //
 
 import UIKit
+import Kanna
+import Alamofire
 
 class NoticeViewController : UIViewController {
     
     var majorName : String?
-    
-    @IBAction func backButton(_ sender: Any) {
-        let transition = CATransition()
-        transition.duration = 0.3
-        transition.type = kCATransitionPush
-        transition.subtype = kCATransitionFromLeft
-        view.window!.layer.add(transition, forKey: kCATransition)
-        
-        self.dismiss(animated: false, completion: nil)
-    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -33,4 +25,11 @@ class NoticeViewController : UIViewController {
     override func didReceiveMemoryWarning() {
         
     }
+    
+    func getHTMLDataFromURL(url: String) {
+        let apiURI = URL(string: "http://www.ddanzi.com/free")
+        
+        
+    }
+    
 }

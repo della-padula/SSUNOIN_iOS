@@ -1,0 +1,6 @@
+framework module Pods_SSUNOIN_iOSUITests {
+  umbrella header "Pods-SSUNOIN_iOSUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

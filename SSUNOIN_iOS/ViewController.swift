@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  SSUNOIN_iOS
-//
-//  Created by 김태인 on 2017. 6. 26..
-//  Copyright © 2017년 Personal. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -42,7 +34,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -67,12 +58,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cell.selectionStyle = .none
         
-        let whiteRoundedView : UIView = UIView(frame: CGRect(x: 10, y: 8, width: self.view.frame.size.width - 20, height: 80))
+        let whiteRoundedView : UIView = UIView(frame: CGRect(x: 10, y: 8, width: self.view.frame.size.width - 20, height: 70))
         whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
         whiteRoundedView.layer.masksToBounds = false
         whiteRoundedView.layer.cornerRadius = 3.0
         whiteRoundedView.layer.shadowOffset = CGSize(width: -0.1, height: 0.1)
-        whiteRoundedView.layer.shadowOpacity = 0.08
+        whiteRoundedView.layer.shadowOpacity = 0.1
         
         cell.contentView.addSubview(whiteRoundedView)
         cell.contentView.sendSubview(toBack: whiteRoundedView)
