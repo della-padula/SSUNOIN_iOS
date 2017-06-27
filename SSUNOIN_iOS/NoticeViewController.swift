@@ -64,7 +64,7 @@ class NoticeViewController : UIViewController, UITableViewDelegate, UITableViewD
         elements.removeAll()
         
         // Page Value : Initial Value is 1
-        getHTMLDataFromURL(page: 1)
+        getHTMLDataFromURL(page: 1, majorIndex: majorIndex)
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,7 +76,7 @@ class NoticeViewController : UIViewController, UITableViewDelegate, UITableViewD
         page = 1
         elements.removeAll()
         self.tableView.beginUpdates()
-        getHTMLDataFromURL(page: page)
+        getHTMLDataFromURL(page: page, majorIndex: majorIndex)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -93,19 +93,20 @@ class NoticeViewController : UIViewController, UITableViewDelegate, UITableViewD
             print("Load More")
             page = page + 1
             
-            getHTMLDataFromURL(page: page)
+            getHTMLDataFromURL(page: page, majorIndex: majorIndex)
         }
-        
-//        if indexPath.row == lastElement {
-//            print("Load More")
-//            page = page + 1
-//            
-//            getHTMLDataFromURL(page: page)
-//        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Selected Row : \(indexPath.row)")
         
+        guard let nextView = self.storyboard?.instantiateViewController(withIdentifier: "NoticeDetailVC") as? NoticeDetailViewController else {
+            return
+        }
+        nextView.itemTitle = elements[indexPath.row].getTitle()
+        nextView.itemDate = elements[indexPath.row].getDate()
+        nextView.itemLinkURL = elements[indexPath.row].getLinkURL()
+        self.navigationController?.pushViewController(nextView, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -121,17 +122,14 @@ class NoticeViewController : UIViewController, UITableViewDelegate, UITableViewD
             
             if elements[indexPath.row].getIsAttachment() {
                 cell.attachmentIcon.image = UIImage(named: "attachmennt")
-                //cell.attachmentIcon.isUserInteractionEnabled = true
             } else {
-                cell.attachmentIcon.image = .none
-                //cell.attachmentIcon.isUserInteractionEnabled = false
-            }
+                cell.attachmentIcon.image = .none            }
             cell.selectionStyle = .none
         }
         return cell
     }
     
-    func getHTMLDataFromURL(page: Int) {
+    func getHTMLDataFromURL(page: Int, majorIndex: Int) {
         Alamofire.request(noticeURL[majorIndex] + "\(page)").responseString { response in
             let html = response.result.value
             if let doc = HTML(html: html!, encoding: .utf8) {
@@ -153,47 +151,38 @@ class NoticeViewController : UIViewController, UITableViewDelegate, UITableViewD
                                 
                                 if index == 1 {
                                     itemNo = (showString as NSString).integerValue
-                                    print("\(itemNo)")
+                                    //print("\(itemNo)")
                                 } else if index == 2 {
                                     title = showString
-                                    print(title!)
+                                    //print(title!)
                                     
                                     for ahref in td.css("a") {
-                                        print(ahref["href"]!)
+                                        //print(ahref["href"]!)
                                         linkURL = ahref["href"]!
                                     }
                                 } else if index == 3 {
-                                    for img in tr.css("img") {
+                                    for _ in tr.css("img") {
                                         // img["src"]!
                                         attachment = true
-                                        print(attachment)
+                                        //print(attachment)
                                     }
                                 } else if index == 4 {
                                     writer = showString
-                                    print(showString)
+                                    //print(showString)
                                 } else if index == 5 {
                                     date = showString
-                                    print(date!)
+                                    //print(date!)
                                 } else if index == 6 {
                                     viewCount = (showString as NSString).integerValue
-                                    print("\(viewCount)")
+                                    //print("\(viewCount)")
                                 }
                                 
                                 index += 1
                             }
-                            
-                            //init(itemNo : Int, title: String, date: String, isAttachment: Bool, viewCount : Int)
                             self.elements.append(Notice.init(itemNo: itemNo, title: title!, linkURL: linkURL!, date: date!, isAttachment: attachment, viewCount: viewCount))
                         }
                     }
                 }
-                
-                //                for item in doc.css("table, bbs-list") {
-                //                    for tbls in doc.xpath("//td[3]//img") {
-                //                        print(tbls.text!)
-                //                    }
-                //                    print(item.text!)
-                //                }
             }
             
             self.tableView.delegate = self
