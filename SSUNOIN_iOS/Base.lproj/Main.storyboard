@@ -216,7 +216,7 @@
                                     <constraint firstAttribute="width" constant="16" id="srq-eS-dFy"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="첨부파일 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3t-Np-VeA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="첨부파일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3t-Np-VeA">
                                 <rect key="frame" x="111" y="53" width="84" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="84" id="PlZ-Dc-86F"/>
@@ -232,15 +232,15 @@
                                     <constraint firstAttribute="height" constant="0.5" id="oOb-Lv-0Q3"/>
                                 </constraints>
                             </view>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vkq-aK-PKk">
-                                <rect key="frame" x="8" y="83" width="304" height="379"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <webView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vkq-aK-PKk">
+                                <rect key="frame" x="8" y="83" width="304" height="469"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </webView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2wM-vV-deC">
-                                <rect key="frame" x="8" y="470" width="304" height="90"/>
+                                <rect key="frame" x="8" y="560" width="304" height="0.0"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="amp-6P-Byw"/>
+                                    <constraint firstAttribute="height" id="amp-6P-Byw"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttachmentCell" id="pLo-QE-zM8" customClass="AttachmentCell" customModule="SSUNOIN_iOS" customModuleProvider="target">

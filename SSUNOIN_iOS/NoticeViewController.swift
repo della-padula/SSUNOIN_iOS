@@ -132,57 +132,61 @@ class NoticeViewController : UIViewController, UITableViewDelegate, UITableViewD
     func getHTMLDataFromURL(page: Int, majorIndex: Int) {
         Alamofire.request(noticeURL[majorIndex] + "\(page)").responseString { response in
             let html = response.result.value
-            if let doc = HTML(html: html!, encoding: .utf8) {
-                for show in doc.css("table[class^='bbs-list']") {
-                    for body in show.css("tbody") {
-                        for tr in body.css("tr") {
-                            var title: String?
-                            var date: String?
-                            var itemNo: Int = 0
-                            var viewCount: Int = 0
-                            var writer : String?
-                            var linkURL : String?
-                            var attachment: Bool = false
-                            var index = 1
-                            
-                            for td in tr.css("td") {
-                                let showString = td.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                                showString.replace(target: "\n", withString: "")
+            if html != nil {
+                if let doc = HTML(html: html!, encoding: .utf8) {
+                    for show in doc.css("table[class^='bbs-list']") {
+                        for body in show.css("tbody") {
+                            for tr in body.css("tr") {
+                                var title: String?
+                                var date: String?
+                                var itemNo: Int = 0
+                                var viewCount: Int = 0
+                                var writer : String?
+                                var linkURL : String?
+                                var attachment: Bool = false
+                                var index = 1
                                 
-                                if index == 1 {
-                                    itemNo = (showString as NSString).integerValue
-                                    //print("\(itemNo)")
-                                } else if index == 2 {
-                                    title = showString
-                                    //print(title!)
+                                for td in tr.css("td") {
+                                    let showString = td.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                                    showString.replace(target: "\n", withString: "")
                                     
-                                    for ahref in td.css("a") {
-                                        //print(ahref["href"]!)
-                                        linkURL = ahref["href"]!
+                                    if index == 1 {
+                                        itemNo = (showString as NSString).integerValue
+                                        //print("\(itemNo)")
+                                    } else if index == 2 {
+                                        title = showString
+                                        //print(title!)
+                                        
+                                        for ahref in td.css("a") {
+                                            //print(ahref["href"]!)
+                                            linkURL = ahref["href"]!
+                                        }
+                                    } else if index == 3 {
+                                        for _ in tr.css("img") {
+                                            // img["src"]!
+                                            attachment = true
+                                            //print(attachment)
+                                        }
+                                    } else if index == 4 {
+                                        writer = showString
+                                        //print(showString)
+                                    } else if index == 5 {
+                                        date = showString
+                                        //print(date!)
+                                    } else if index == 6 {
+                                        viewCount = (showString as NSString).integerValue
+                                        //print("\(viewCount)")
                                     }
-                                } else if index == 3 {
-                                    for _ in tr.css("img") {
-                                        // img["src"]!
-                                        attachment = true
-                                        //print(attachment)
-                                    }
-                                } else if index == 4 {
-                                    writer = showString
-                                    //print(showString)
-                                } else if index == 5 {
-                                    date = showString
-                                    //print(date!)
-                                } else if index == 6 {
-                                    viewCount = (showString as NSString).integerValue
-                                    //print("\(viewCount)")
+                                    
+                                    index += 1
                                 }
-                                
-                                index += 1
+                                self.elements.append(Notice.init(itemNo: itemNo, title: title!, linkURL: linkURL!, date: date!, isAttachment: attachment, viewCount: viewCount))
                             }
-                            self.elements.append(Notice.init(itemNo: itemNo, title: title!, linkURL: linkURL!, date: date!, isAttachment: attachment, viewCount: viewCount))
                         }
                     }
                 }
+            } else {
+                print("Network Error")
             }
             
             self.tableView.delegate = self

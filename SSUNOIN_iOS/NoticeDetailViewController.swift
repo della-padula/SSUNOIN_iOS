@@ -10,12 +10,10 @@ import UIKit
 import Kanna
 import Alamofire
 
-class NoticeDetailViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NoticeDetailViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate, AttachmentDelegate {
     var itemTitle : String?
     var itemDate : String?
     var itemLinkURL : String?
-    
-    
     
     @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var dateText: UILabel!
@@ -25,6 +23,8 @@ class NoticeDetailViewController : UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var attachmentTableViewHeightConstraint: NSLayoutConstraint!
     
     var elements : [Attachment] = []
+    
+    var docController: UIDocumentInteractionController!
     
     override func viewDidLoad() {
         self.title = "공지사항"
@@ -41,6 +41,21 @@ class NoticeDetailViewController : UIViewController, UITableViewDelegate, UITabl
         
     }
     
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        return self
+    }
+    func documentInteractionControllerDidEndPreview(_ controller: UIDocumentInteractionController) {
+        self.docController = nil
+    }
+    
+    func showDocumentInteractionController(filePath: String) {
+        print("open file dialog")
+        self.docController = UIDocumentInteractionController(url: NSURL(fileURLWithPath: filePath) as URL)
+        self.docController.name = NSURL(fileURLWithPath: filePath).lastPathComponent
+        self.docController.delegate = self
+        self.docController.presentOptionsMenu(from: view.frame, in: view, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
@@ -55,6 +70,8 @@ class NoticeDetailViewController : UIViewController, UITableViewDelegate, UITabl
         if elements.count > 0 {
             cell.fileNameText.text = elements[indexPath.row].getFileName()
             cell.downloadLink = elements[indexPath.row].getDownloadLink()
+            cell.fileName = elements[indexPath.row].getFileName()
+            cell.cellDelegate = self
         }
         
         return cell
@@ -67,10 +84,13 @@ class NoticeDetailViewController : UIViewController, UITableViewDelegate, UITabl
             if let doc = HTML(html: html!, encoding: .utf8) {
                 for show in doc.css("table[class|='bbs-view']") {
                     //print(show.text!)
-                    self.attachmentCount.text="첨부파일 : \(show.css("a").count)개"
                     
-                    if show.css("a").count < 1 {
-                        self.attachmentTableViewHeightConstraint.constant = 0
+                    if show.css("a").count > 0 {
+                        self.attachmentTableViewHeightConstraint.constant = 90
+                        
+                        self.attachmentCount.text="첨부파일 : \(show.css("a").count)개"
+                    } else {
+                        self.attachmentCount.text="첨부파일 없음"
                     }
                     
                     for ahref in show.css("a") {
