@@ -6,6 +6,7 @@ use_frameworks!
 target ‘SSUNOIN_iOS’ do
   pod 'Alamofire', '~> 4.4'
   pod 'Kanna', '~> 2.1.0'
+  pod 'Kingfisher', '~> 3.0'
 end
 
   target 'SSUNOIN_iOSTests' do
