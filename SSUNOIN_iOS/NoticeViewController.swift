@@ -164,7 +164,7 @@ class NoticeViewController : UIViewController, UITableViewDelegate, UITableViewD
                                     for td in tr.css("td") {
                                         let showString = td.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                                         showString.replace(target: "\n", withString: "")
-                                        print(showString)
+                                        //print(showString)
                                         
                                         if index == 1 {
                                             if(majorIndex == 4) {
@@ -174,7 +174,7 @@ class NoticeViewController : UIViewController, UITableViewDelegate, UITableViewD
                                                     linkURL = ahref["href"]!
                                                 }
                                                 
-                                                print(title)
+                                                //print(title)
                                             } else {
                                                 itemNo = (showString as NSString).integerValue
                                             }
@@ -182,7 +182,7 @@ class NoticeViewController : UIViewController, UITableViewDelegate, UITableViewD
                                         } else if index == 2 {
                                             if(majorIndex == 4) {
                                                 date = showString
-                                                print(date)
+                                                //print(date)
                                             } else {
                                                 title = showString
                                             }
@@ -195,7 +195,7 @@ class NoticeViewController : UIViewController, UITableViewDelegate, UITableViewD
                                         } else if index == 3 {
                                             if(majorIndex == 4) {
                                                 viewCount = (showString as NSString).integerValue
-                                                print("\(viewCount)")
+                                                //print("\(viewCount)")
                                             } else {
                                                 for _ in tr.css("img[alt^='첨부 파일']") {
                                                     // img["src"]!
@@ -206,11 +206,11 @@ class NoticeViewController : UIViewController, UITableViewDelegate, UITableViewD
                                         } else if index == 4 {
                                             //writer = showString
                                             //print(showString)
-                                            if(majorIndex == 3) {
+                                            if(majorIndex == 3 || majorIndex == 5) {
                                                 date = showString
                                             }
                                         } else if index == 5 {
-                                            if(majorIndex != 3) {
+                                            if(majorIndex != 3 && majorIndex != 5) {
                                                 date = showString
                                             }
                                             //print(date!)
@@ -221,7 +221,7 @@ class NoticeViewController : UIViewController, UITableViewDelegate, UITableViewD
                                         
                                         index += 1
                                     }
-                                    print("after for")
+                                    //print("after for")
                                     self.elements.append(Notice.init(itemNo: itemNo, title: title!, linkURL: linkURL!, date: date!, isAttachment: attachment, viewCount: viewCount))
                                 }
                             }
