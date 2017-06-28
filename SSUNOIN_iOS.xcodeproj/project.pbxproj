@@ -11,6 +11,8 @@
 		3AD80514B973783202E64A8F /* Pods_SSUNOIN_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCFB4E8964237B6281EF1BDA /* Pods_SSUNOIN_iOS.framework */; };
 		43ADE17D9C991B34A5DF1640 /* Pods_SSUNOIN_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4ADDB21C6AFB9A4E38F62D /* Pods_SSUNOIN_iOSUITests.framework */; };
 		DE1F6B7A1F028FAD00EDE4D6 /* NoticeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1F6B791F028FAD00EDE4D6 /* NoticeDetailViewController.swift */; };
+		DE72E39A1F03410A00AF455D /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE72E3991F03410A00AF455D /* Attachment.swift */; };
+		DE72E39C1F03418300AF455D /* AttachmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE72E39B1F03418300AF455D /* AttachmentCell.swift */; };
 		DE8701771F012D70002CD44A /* MajorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8701761F012D70002CD44A /* MajorCell.swift */; };
 		DE87017B1F013280002CD44A /* NoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE87017A1F013280002CD44A /* NoticeCell.swift */; };
 		DE87017D1F0132C8002CD44A /* UnionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE87017C1F0132C8002CD44A /* UnionCell.swift */; };
@@ -61,6 +63,8 @@
 		CF21862D7681D8D1C1EDBD96 /* Pods-SSUNOIN_iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSUNOIN_iOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSUNOIN_iOSUITests/Pods-SSUNOIN_iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DB09594FF981CD77843A9989 /* Pods-SSUNOIN_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SSUNOIN_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SSUNOIN_iOS/Pods-SSUNOIN_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		DE1F6B791F028FAD00EDE4D6 /* NoticeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeDetailViewController.swift; sourceTree = "<group>"; };
+		DE72E3991F03410A00AF455D /* Attachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
+		DE72E39B1F03418300AF455D /* AttachmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentCell.swift; sourceTree = "<group>"; };
 		DE8701761F012D70002CD44A /* MajorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MajorCell.swift; sourceTree = "<group>"; };
 		DE87017A1F013280002CD44A /* NoticeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeCell.swift; sourceTree = "<group>"; };
 		DE87017C1F0132C8002CD44A /* UnionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionCell.swift; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 				DEB999481F0234A1006C1B99 /* Notice.swift */,
 				DEB9994A1F023512006C1B99 /* AppDataCache.swift */,
 				DE1F6B791F028FAD00EDE4D6 /* NoticeDetailViewController.swift */,
+				DE72E3991F03410A00AF455D /* Attachment.swift */,
+				DE72E39B1F03418300AF455D /* AttachmentCell.swift */,
 			);
 			path = SSUNOIN_iOS;
 			sourceTree = "<group>";
@@ -509,11 +515,13 @@
 				DEB9994B1F023512006C1B99 /* AppDataCache.swift in Sources */,
 				DEA3FFC81F00B0EA00AB045D /* ViewController.swift in Sources */,
 				DE87017F1F0133D2002CD44A /* Major.swift in Sources */,
+				DE72E39C1F03418300AF455D /* AttachmentCell.swift in Sources */,
 				DEB999451F0232AE006C1B99 /* StudentUnionViewController.swift in Sources */,
 				DE87017D1F0132C8002CD44A /* UnionCell.swift in Sources */,
 				DE8701811F014064002CD44A /* NoticeViewController.swift in Sources */,
 				DEB999471F02333F006C1B99 /* MoreViewController.swift in Sources */,
 				DE87017B1F013280002CD44A /* NoticeCell.swift in Sources */,
+				DE72E39A1F03410A00AF455D /* Attachment.swift in Sources */,
 				DE8701771F012D70002CD44A /* MajorCell.swift in Sources */,
 				DEB999431F023200006C1B99 /* HomeNavigationController.swift in Sources */,
 				DE1F6B7A1F028FAD00EDE4D6 /* NoticeDetailViewController.swift in Sources */,
