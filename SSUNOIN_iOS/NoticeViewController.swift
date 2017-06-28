@@ -35,6 +35,8 @@ class NoticeViewController : UIViewController, UITableViewDelegate, UITableViewD
     var majorName : String?
     var majorIndex = 0
     
+    var loadMoreFlag = false
+    
     var refreshControl: UIRefreshControl!
     var page = 1
     
@@ -84,16 +86,19 @@ class NoticeViewController : UIViewController, UITableViewDelegate, UITableViewD
         let lastRowIndex = lastElement
         
         if indexPath.row == lastRowIndex {
-            spinner2.startAnimating()
-            spinner2.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
-            
-            self.tableView.tableFooterView = spinner2
-            self.tableView.tableFooterView?.isHidden = false
-            
-            print("Load More")
-            page = page + 1
-            
-            getHTMLDataFromURL(page: page, majorIndex: majorIndex)
+            if (loadMoreFlag) {
+                spinner2.startAnimating()
+                spinner2.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+                
+                self.tableView.tableFooterView = spinner2
+                self.tableView.tableFooterView?.isHidden = false
+                
+                print("Load More")
+                
+                
+                page = page + 1
+                getHTMLDataFromURL(page: page, majorIndex: majorIndex)
+            }
         }
     }
     
@@ -123,7 +128,9 @@ class NoticeViewController : UIViewController, UITableViewDelegate, UITableViewD
             if elements[indexPath.row].getIsAttachment() {
                 cell.attachmentIcon.image = UIImage(named: "attachmennt")
             } else {
-                cell.attachmentIcon.image = .none            }
+                cell.attachmentIcon.image = .none
+            }
+            
             cell.selectionStyle = .none
         }
         return cell
@@ -136,51 +143,87 @@ class NoticeViewController : UIViewController, UITableViewDelegate, UITableViewD
                 if let doc = HTML(html: html!, encoding: .utf8) {
                     for show in doc.css("table[class^='bbs-list']") {
                         for body in show.css("tbody") {
+                            if body.css("tr").count < 10 {
+                                self.loadMoreFlag = false;
+                            } else {
+                                self.loadMoreFlag = true;
+                            }
+                            
                             for tr in body.css("tr") {
                                 var title: String?
                                 var date: String?
                                 var itemNo: Int = 0
                                 var viewCount: Int = 0
-                                var writer : String?
+                                //var writer : String?
                                 var linkURL : String?
                                 var attachment: Bool = false
                                 var index = 1
                                 
-                                for td in tr.css("td") {
-                                    let showString = td.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-                                    showString.replace(target: "\n", withString: "")
-                                    
-                                    if index == 1 {
-                                        itemNo = (showString as NSString).integerValue
-                                        //print("\(itemNo)")
-                                    } else if index == 2 {
-                                        title = showString
-                                        //print(title!)
+                                //print("BODY CLASS : \(tr["class"])")
+                                if tr["class"] != "trNotice" {
+                                    for td in tr.css("td") {
+                                        let showString = td.text!.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+                                        showString.replace(target: "\n", withString: "")
+                                        print(showString)
                                         
-                                        for ahref in td.css("a") {
-                                            //print(ahref["href"]!)
-                                            linkURL = ahref["href"]!
+                                        if index == 1 {
+                                            if(majorIndex == 4) {
+                                                title = showString
+                                                for ahref in td.css("a") {
+                                                    //print(ahref["href"]!)
+                                                    linkURL = ahref["href"]!
+                                                }
+                                                
+                                                print(title)
+                                            } else {
+                                                itemNo = (showString as NSString).integerValue
+                                            }
+                                            //print("\(itemNo)")
+                                        } else if index == 2 {
+                                            if(majorIndex == 4) {
+                                                date = showString
+                                                print(date)
+                                            } else {
+                                                title = showString
+                                            }
+                                            //print(title!)
+                                            
+                                            for ahref in td.css("a") {
+                                                //print(ahref["href"]!)
+                                                linkURL = ahref["href"]!
+                                            }
+                                        } else if index == 3 {
+                                            if(majorIndex == 4) {
+                                                viewCount = (showString as NSString).integerValue
+                                                print("\(viewCount)")
+                                            } else {
+                                                for _ in tr.css("img[alt^='첨부 파일']") {
+                                                    // img["src"]!
+                                                    attachment = true
+                                                    //print(attachment)
+                                                }
+                                            }
+                                        } else if index == 4 {
+                                            //writer = showString
+                                            //print(showString)
+                                            if(majorIndex == 3) {
+                                                date = showString
+                                            }
+                                        } else if index == 5 {
+                                            if(majorIndex != 3) {
+                                                date = showString
+                                            }
+                                            //print(date!)
+                                        } else if index == 6 {
+                                            viewCount = (showString as NSString).integerValue
+                                            //print("\(viewCount)")
                                         }
-                                    } else if index == 3 {
-                                        for _ in tr.css("img") {
-                                            // img["src"]!
-                                            attachment = true
-                                            //print(attachment)
-                                        }
-                                    } else if index == 4 {
-                                        writer = showString
-                                        //print(showString)
-                                    } else if index == 5 {
-                                        date = showString
-                                        //print(date!)
-                                    } else if index == 6 {
-                                        viewCount = (showString as NSString).integerValue
-                                        //print("\(viewCount)")
+                                        
+                                        index += 1
                                     }
-                                    
-                                    index += 1
+                                    print("after for")
+                                    self.elements.append(Notice.init(itemNo: itemNo, title: title!, linkURL: linkURL!, date: date!, isAttachment: attachment, viewCount: viewCount))
                                 }
-                                self.elements.append(Notice.init(itemNo: itemNo, title: title!, linkURL: linkURL!, date: date!, isAttachment: attachment, viewCount: viewCount))
                             }
                         }
                     }

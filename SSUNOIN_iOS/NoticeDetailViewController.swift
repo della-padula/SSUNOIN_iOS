@@ -56,6 +56,7 @@ class NoticeDetailViewController : UIViewController, UITableViewDelegate, UITabl
         self.hideActivityIndicator()
         self.docController = UIDocumentInteractionController(url: NSURL(fileURLWithPath: filePath) as URL)
         self.docController.name = NSURL(fileURLWithPath: filePath).lastPathComponent
+        print("NAME : " + self.docController.name!)
         self.docController.delegate = self
         self.docController.presentOptionsMenu(from: view.frame, in: view, animated: true)
     }
@@ -79,6 +80,7 @@ class NoticeDetailViewController : UIViewController, UITableViewDelegate, UITabl
             cell.fileNameText.text = elements[indexPath.row].getFileName()
             cell.downloadLink = elements[indexPath.row].getDownloadLink()
             cell.fileName = elements[indexPath.row].getFileName()
+            cell.selectionStyle = .none
             cell.cellDelegate = self
         }
         
@@ -102,8 +104,8 @@ class NoticeDetailViewController : UIViewController, UITableViewDelegate, UITabl
                     }
                     
                     for ahref in show.css("a") {
-                        print(ahref["href"]!)
-                        print(ahref.text!)
+                        //print(ahref["href"]!)
+                        //print(ahref.text!)
                         
                         self.elements.append(Attachment.init(fileName: ahref.text!, downloadLink: ahref["href"]))
                     }
@@ -114,7 +116,7 @@ class NoticeDetailViewController : UIViewController, UITableViewDelegate, UITabl
                 for show in doc.css("table[class^='bbs-body']") {
                     
                     for div in show.css("div") {
-                        print(div.innerHTML!)
+                        //print(div.innerHTML!)
                         
                         self.noticeContent.loadHTMLString(div.innerHTML!, baseURL: nil)
                     }

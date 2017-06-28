@@ -33,11 +33,14 @@ class AttachmentCell : UITableViewCell {
             return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
         }
         
-        Alamofire.download(downloadLink!, to: destination).response { response in
-            if response.error == nil, let filePath = response.destinationURL?.path {
-                print("Downloaded File Path : " + filePath)
-                self.cellDelegate?.showDocumentInteractionController(filePath: filePath)
-            }
+        Alamofire.download(downloadLink!, to: destination)
+            .downloadProgress { progress in
+                print("Download Progress: \(progress.fractionCompleted)")
+            }.response { response in
+                if response.error == nil, let filePath = response.destinationURL?.path {
+                    //print("Downloaded File Path : " + filePath)
+                    self.cellDelegate?.showDocumentInteractionController(filePath: filePath)
+                }
         }
     }
 }
