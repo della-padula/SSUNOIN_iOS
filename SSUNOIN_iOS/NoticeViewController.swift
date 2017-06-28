@@ -207,10 +207,10 @@ class NoticeViewController : UIViewController, UITableViewDelegate, UITableViewD
             self.loadingView = UIView()
             self.loadingView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height)
             self.loadingView.center = self.view.center
-            self.loadingView.backgroundColor = UIColor(hex: "303030")
-            self.loadingView.alpha = 0.5
+            self.loadingView.backgroundColor = UIColor(hex: "FFFFFF")
+            self.loadingView.alpha = 1.0
             self.loadingView.clipsToBounds = true
-            self.spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+            self.spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
             self.spinner.frame = CGRect(x: 0.0, y: 0.0, width: 80.0, height: 80.0)
             self.spinner.center = CGPoint(x:self.loadingView.bounds.size.width / 2, y:self.loadingView.bounds.size.height / 2)
             self.loadingView.addSubview(self.spinner)

@@ -11,6 +11,7 @@ import Alamofire
 
 protocol AttachmentDelegate : class {
     func showDocumentInteractionController(filePath: String)
+    func showIndicator()
 }
 
 class AttachmentCell : UITableViewCell {
@@ -23,6 +24,8 @@ class AttachmentCell : UITableViewCell {
     
     @IBOutlet weak var fileNameText: UILabel!
     @IBAction func downloadButton(_ sender: Any) {
+        self.cellDelegate?.showIndicator()
+        
         let destination: DownloadRequest.DownloadFileDestination = { _, _ in
             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             let fileURL = documentsURL.appendingPathComponent(self.fileName!)

@@ -15,6 +15,9 @@ class NoticeDetailViewController : UIViewController, UITableViewDelegate, UITabl
     var itemDate : String?
     var itemLinkURL : String?
     
+    var loadingView: UIView = UIView()
+    var spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    
     @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var dateText: UILabel!
     @IBOutlet weak var attachmentCount: UILabel!
@@ -50,10 +53,15 @@ class NoticeDetailViewController : UIViewController, UITableViewDelegate, UITabl
     
     func showDocumentInteractionController(filePath: String) {
         print("open file dialog")
+        self.hideActivityIndicator()
         self.docController = UIDocumentInteractionController(url: NSURL(fileURLWithPath: filePath) as URL)
         self.docController.name = NSURL(fileURLWithPath: filePath).lastPathComponent
         self.docController.delegate = self
         self.docController.presentOptionsMenu(from: view.frame, in: view, animated: true)
+    }
+    
+    func showIndicator() {
+        self.showActivityIndicator()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -115,6 +123,30 @@ class NoticeDetailViewController : UIViewController, UITableViewDelegate, UITabl
                 self.attachmentTableView.dataSource = self
                 self.attachmentTableView.reloadData()
             }
+        }
+    }
+    
+    func showActivityIndicator() {
+        DispatchQueue.main.async {
+            self.loadingView = UIView()
+            self.loadingView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height)
+            self.loadingView.center = self.view.center
+            self.loadingView.backgroundColor = UIColor(hex: "303030")
+            self.loadingView.alpha = 0.3
+            self.loadingView.clipsToBounds = true
+            self.spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+            self.spinner.frame = CGRect(x: 0.0, y: 0.0, width: 80.0, height: 80.0)
+            self.spinner.center = CGPoint(x:self.loadingView.bounds.size.width / 2, y:self.loadingView.bounds.size.height / 2)
+            self.loadingView.addSubview(self.spinner)
+            self.view.addSubview(self.loadingView)
+            self.spinner.startAnimating()
+        }
+    }
+    
+    func hideActivityIndicator() {
+        DispatchQueue.main.async {
+            self.spinner.stopAnimating()
+            self.loadingView.removeFromSuperview()
         }
     }
 }
