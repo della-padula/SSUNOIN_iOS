@@ -8,6 +8,12 @@ DEPENDENCIES:
   - Kanna (~> 2.1.0)
   - Kingfisher (~> 3.0)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Kanna
+    - Kingfisher
+
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   Kanna: 9b4b086c218703f2b94f5b21a466217dd2f9332e
@@ -15,4 +21,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: d0592b98eb91617f75aeb075b4e13f5495ded51e
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.7.3
